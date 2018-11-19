@@ -31,7 +31,7 @@ namespace ResourceCalc
                 resultBox.Text = $"Сажаем клиента на простой терминальный сервер с файловыми базами." +
                     $"{System.Environment.NewLine}{System.Environment.NewLine}" +
                     $"CPU: 2{System.Environment.NewLine}" +
-                    $"RAM: {2 + numericUsers.Value * 1}{System.Environment.NewLine}" +
+                    $"RAM: {2 + numericUsers.Value}{System.Environment.NewLine}" +
                     $"Disk: 50Gb система + {Convert.ToDouble(numericBasesGB.Value) * 1.5}Gb под базы.";
             }
             //3-в-1, RDP+Web, ОТ 5 юзеров и ДО 15 включительно И база ДО 40Гб включительно И суммарно баз ДО 40Гб включительно.
