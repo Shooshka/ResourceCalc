@@ -28,7 +28,9 @@ namespace ResourceCalc
             //Обычный файловый серв, RDP+Web, ДО 5 юзеров включительно И база ДО 4Гб включительно И суммарно баз ДО 40Гб включительно.
             else if (comboBox1.SelectedIndex == 0 && numericUsers.Value < 6 && numericBasesGB.Value < 41 && numericMaxBaseGB.Value < 5)
             {
-                resultBox.Text = $"Сажаем клиента на простой терминальный сервер с файловыми базами.{System.Environment.NewLine}{System.Environment.NewLine}CPU: 2{System.Environment.NewLine}RAM: {2 + numericUsers.Value * 1}{System.Environment.NewLine}Disk: 50Gb система + {Convert.ToDouble(numericBasesGB.Value) * 1.5}Gb под базы.";
+                resultBox.Text = $"Сажаем клиента на простой терминальный сервер с файловыми базами.{System.Environment.NewLine}{System.Environment.NewLine}" +
+                    $"CPU: 2{System.Environment.NewLine}RAM: {2 + numericUsers.Value * 1}{System.Environment.NewLine}" +
+                    $"Disk: 50Gb система + {Convert.ToDouble(numericBasesGB.Value) * 1.5}Gb под базы.";
             }
             //3-в-1, RDP+Web, ОТ 5 юзеров и ДО 15 включительно И база ДО 40Гб включительно И суммарно баз ДО 40Гб включительно.
             else if (comboBox1.SelectedIndex == 0 && 5 < numericUsers.Value && numericUsers.Value < 16 && numericBasesGB.Value < 41 && numericMaxBaseGB.Value < 41)
@@ -45,7 +47,8 @@ namespace ResourceCalc
                 var ram4sql = numericBasesGB.Value / 2;
                 var ramTotal = ram4users + ram4system + ram41c + ram4sql;
 
-                resultBox.Text = $"Сажаем клиента на 3-в-1.{System.Environment.NewLine}{System.Environment.NewLine}CPU: {cpuTotal}{System.Environment.NewLine}RAM: {ramTotal}{System.Environment.NewLine}Disk: 60Gb система + {Convert.ToDouble(numericBasesGB.Value) * 1.5}Gb под базы.";
+                resultBox.Text = $"Сажаем клиента на 3-в-1.{System.Environment.NewLine}{System.Environment.NewLine}CPU: {cpuTotal}{System.Environment.NewLine}" +
+                    $"RAM: {ramTotal}{System.Environment.NewLine}Disk: 60Gb система + {Convert.ToDouble(numericBasesGB.Value) * 1.5}Gb под базы.";
             }
             //Структура Терм и 1с+скуль, ОТ 16 юзеров ДО 70 юзеров.
             else if (comboBox1.SelectedIndex == 0 && numericUsers.Value > 15)
@@ -68,8 +71,10 @@ namespace ResourceCalc
                 var ramTotalTerm = ram4users + ram4system;
                 var ramTotal1c = ram4system + ram41c + ram4sql;
 
-                resultBox.Text = $"Сажаем клиента на Терм и 1с+скуль.{System.Environment.NewLine}{System.Environment.NewLine}Term CPU: {cpuTotalTerm}{System.Environment.NewLine}Term RAM: {ramTotalTerm}{System.Environment.NewLine}Disk Term: 50Gb система.{System.Environment.NewLine}{System.Environment.NewLine}CPU 1c+sql: {cpuTotal1c}{System.Environment.NewLine}RAM 1c+sql: {ramTotal1c}{System.Environment.NewLine}Disk: 60Gb система + {Convert.ToDouble(numericBasesGB.Value) * 1.5}Gb под базы.";
-
+                resultBox.Text = $"Сажаем клиента на Терм и 1с+скуль.{System.Environment.NewLine}{System.Environment.NewLine}Term CPU: {cpuTotalTerm}{System.Environment.NewLine}" +
+                    $"Term RAM: {ramTotalTerm}{System.Environment.NewLine}Disk Term: 50Gb система.{System.Environment.NewLine}{System.Environment.NewLine}" +
+                    $"CPU 1c+sql: {cpuTotal1c}{System.Environment.NewLine}RAM 1c+sql: {ramTotal1c}{System.Environment.NewLine}" +
+                    $"Disk: 60Gb система + {Convert.ToDouble(numericBasesGB.Value) * 1.5}Gb под базы.";
             }
 
         }
