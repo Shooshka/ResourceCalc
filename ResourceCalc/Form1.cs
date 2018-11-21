@@ -92,7 +92,7 @@ namespace ResourceCalc
                     $"Disk: {systemdisk1c}Gb система + {basesdisk1c}Gb под базы.";
             }
             //3-в-1, Web, ДО 80 юзеров И база ДО 24Гб включительно И суммарно баз ДО 24Гб включительно.
-            else if (comboBox1.SelectedIndex == 1 && numericUsers.Value < 81 && numericBasesGB.Value < 25 && numericMaxBaseGB.Value < 25)
+            else if (comboBox1.SelectedIndex == 1 && numericUsers.Value < 80 && numericBasesGB.Value < 25 && numericMaxBaseGB.Value < 25)
             {
                 var cpu4users = 1;
                 var cpu4system = 1;
@@ -114,7 +114,7 @@ namespace ResourceCalc
                     $"RAM: {ramTotal}{System.Environment.NewLine}" +
                     $"Disk: {systemdisk}Gb система + {basesdisk}Gb под базы.";
             }
-            //Структура Терм и 1с+скуль WEB, ОТ 16 юзеров ДО 70 юзеров.
+            //Структура Терм и 1с+скуль WEB, ОТ 24 ДО 50 ГБ баз.
             else if (comboBox1.SelectedIndex == 1 && numericBasesGB.Value > 24 && numericBasesGB.Value < 51)
             {
                 var cpu4users = 1;
