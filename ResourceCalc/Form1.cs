@@ -21,17 +21,24 @@ namespace ResourceCalc
         private void button1_Click(object sender, EventArgs e)
         {
             //Плюёмся еррорами на RDP+Web
-            if (numericUsers.Value > 70 || numericBasesGB.Value > 100 || numericMaxBaseGB.Value > 100)
+            if (comboBox1.SelectedIndex == 0)
             {
-                resultBox.Text = "Скорее всего автоматически такое посчитать не получится, обратитесь на vo за расчетом.";
+                if (numericUsers.Value > 70 || numericBasesGB.Value > 100 || numericMaxBaseGB.Value > 100)
+                {
+                    resultBox.Text = "Скорее всего автоматически такое посчитать не получится, обратитесь на vo за расчетом.";
+                }
             }
             //Плюёмся еррорами на Web
-            else if (numericUsers.Value > 1024 || numericBasesGB.Value > 50)
+            else
             {
-                resultBox.Text = "Скорее всего автоматически такое посчитать не получится, обратитесь на vo за расчетом.";
+                if (numericUsers.Value > 1024 || numericBasesGB.Value > 50)
+                {
+                    resultBox.Text = "Скорее всего автоматически такое посчитать не получится, обратитесь на vo за расчетом.";
+                }
             }
+                  
             //Обычный файловый серв, RDP+Web, ДО 5 юзеров включительно И база ДО 4Гб включительно И суммарно баз ДО 40Гб включительно.
-            else if (comboBox1.SelectedIndex == 0 && numericUsers.Value < 6 && numericBasesGB.Value < 41 && numericMaxBaseGB.Value < 5)
+            if (comboBox1.SelectedIndex == 0 && numericUsers.Value < 6 && numericBasesGB.Value < 41 && numericMaxBaseGB.Value < 5)
             {
                 resultBox.Text = $"Сажаем клиента на простой терминальный сервер с файловыми базами." +
                     $"{System.Environment.NewLine}{System.Environment.NewLine}" +
