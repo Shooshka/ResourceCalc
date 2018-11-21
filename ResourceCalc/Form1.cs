@@ -58,7 +58,7 @@ namespace ResourceCalc
                 var ram4users = (Convert.ToInt32(numericUsers.Value) % 2 == 0) ? Convert.ToInt32(numericUsers.Value) / 2 : (Convert.ToInt32(numericUsers.Value) / 2) + 1;
                 var ram4system = 2;
                 var ram41c = 4;
-                var ram4sql = numericBasesGB.Value / 2;
+                var ram4sql = Convert.ToInt32(numericBasesGB.Value) / 2;
                 var ramTotal = ram4users + ram4system + ram41c + ram4sql;
 
                 var systemdisk = 60 + numericUsers.Value;
@@ -91,7 +91,7 @@ namespace ResourceCalc
                     var ram4system = 2;
 
                     var ram41c = cpu41c * 4;
-                    var ram4sql = numericBasesGB.Value / 2;
+                    var ram4sql = Convert.ToInt32(numericBasesGB.Value) / 2;
 
                     var ramTotalTerm = ram4users + ram4system;
                     var ramTotal1c = ram4system + ram41c + ram4sql;
@@ -122,7 +122,7 @@ namespace ResourceCalc
 
                 var ram4system = 2;
                 var ram41c = cpu41c * 4;
-                var ram4sql = numericBasesGB.Value / 2;
+                var ram4sql = Convert.ToInt32(numericBasesGB.Value) / 2;
                 var ramTotal = ram4system + ram41c + ram4sql;
 
                 var systemdisk = 60;
