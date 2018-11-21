@@ -20,8 +20,13 @@ namespace ResourceCalc
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Плюёмся еррорами
+            //Плюёмся еррорами на RDP+Web
             if (numericUsers.Value > 70 || numericBasesGB.Value > 100 || numericMaxBaseGB.Value > 100)
+            {
+                resultBox.Text = "Скорее всего автоматически такое посчитать не получится, обратитесь на vo за расчетом.";
+            }
+            //Плюёмся еррорами на Web
+            else if (numericUsers.Value > 1024 || numericBasesGB.Value > 50)
             {
                 resultBox.Text = "Скорее всего автоматически такое посчитать не получится, обратитесь на vo за расчетом.";
             }
