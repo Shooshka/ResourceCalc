@@ -23,7 +23,7 @@ namespace ResourceCalc
             //Плюёмся еррорами на RDP+Web
             if (comboBox1.SelectedIndex == 0)
             {
-                if (numericUsers.Value > 60 || numericBasesGB.Value > 100 || numericMaxBaseGB.Value > 100)
+                if (numericUsers.Value > 60 || numericBasesGB.Value > 40 || numericMaxBaseGB.Value > 40)
                 {
                     resultBox.Text = "Скорее всего автоматически такое посчитать не получится, обратитесь на vo за расчетом.";
                 }
@@ -31,7 +31,7 @@ namespace ResourceCalc
             //Плюёмся еррорами на Web
             else
             {
-                if (numericUsers.Value > 1024 || numericBasesGB.Value > 50)
+                if (numericUsers.Value > 80 || numericBasesGB.Value > 20)
                 {
                     resultBox.Text = "Скорее всего автоматически такое посчитать не получится, обратитесь на vo за расчетом.";
                 }
@@ -72,36 +72,44 @@ namespace ResourceCalc
             //Структура Терм и 1с+скуль RDP+Web, ОТ 16 юзеров ДО 60 юзеров.
             else if (comboBox1.SelectedIndex == 0 && numericUsers.Value > 15)
             {
-                var cpu4users = (Convert.ToInt32(numericUsers.Value) % 7 == 0) ? Convert.ToInt32(numericUsers.Value) / 7 : (Convert.ToInt32(numericUsers.Value) / 7) + 1;
-                var cpu4system = 1;
+                if (numericBasesGB.Value > 35)
+                {
+                    resultBox.Text = "Скорее всего автоматически такое посчитать не получится, обратитесь на vo за расчетом.";
+                }
+                else
+                {
+                    var cpu4users = (Convert.ToInt32(numericUsers.Value) % 7 == 0) ? Convert.ToInt32(numericUsers.Value) / 7 : (Convert.ToInt32(numericUsers.Value) / 7) + 1;
+                    var cpu4system = 1;
 
-                var cpu41c = (Convert.ToInt32(numericUsers.Value) % 20 == 0) ? Convert.ToInt32(numericUsers.Value) / 20 : (Convert.ToInt32(numericUsers.Value) / 20) + 1;
-                var cpu4sql = 1 + cpu41c;
+                    var cpu41c = (Convert.ToInt32(numericUsers.Value) % 20 == 0) ? Convert.ToInt32(numericUsers.Value) / 20 : (Convert.ToInt32(numericUsers.Value) / 20) + 1;
+                    var cpu4sql = 1 + cpu41c;
 
-                var cpuTotalTerm = cpu4users + cpu4system;
-                var cpuTotal1c = cpu4system + cpu41c + cpu4sql;
+                    var cpuTotalTerm = cpu4users + cpu4system;
+                    var cpuTotal1c = cpu4system + cpu41c + cpu4sql;
 
-                var ram4users = (Convert.ToInt32(numericUsers.Value) % 2 == 0) ? Convert.ToInt32(numericUsers.Value) / 2 : (Convert.ToInt32(numericUsers.Value) / 2) + 1;
-                var ram4system = 2;
+                    var ram4users = (Convert.ToInt32(numericUsers.Value) % 2 == 0) ? Convert.ToInt32(numericUsers.Value) / 2 : (Convert.ToInt32(numericUsers.Value) / 2) + 1;
+                    var ram4system = 2;
 
-                var ram41c = cpu41c * 4;
-                var ram4sql = numericBasesGB.Value / 2;
+                    var ram41c = cpu41c * 4;
+                    var ram4sql = numericBasesGB.Value / 2;
 
-                var ramTotalTerm = ram4users + ram4system;
-                var ramTotal1c = ram4system + ram41c + ram4sql;
+                    var ramTotalTerm = ram4users + ram4system;
+                    var ramTotal1c = ram4system + ram41c + ram4sql;
 
-                var systemdiskTerm = 50 + numericUsers.Value;
+                    var systemdiskTerm = 50 + numericUsers.Value;
 
-                var systemdisk1c = 60;
-                var basesdisk1c = Convert.ToDouble(numericBasesGB.Value) * 1.5;
+                    var systemdisk1c = 60;
+                    var basesdisk1c = Convert.ToDouble(numericBasesGB.Value) * 1.5;
 
-                resultBox.Text = $"Сажаем клиента на Терм и 1с+скуль.{System.Environment.NewLine}{System.Environment.NewLine}" +
-                    $"Term CPU: {cpuTotalTerm}{System.Environment.NewLine}" +
-                    $"Term RAM: {ramTotalTerm}{System.Environment.NewLine}" +
-                    $"Disk Term: {systemdiskTerm}Gb система.{System.Environment.NewLine}{System.Environment.NewLine}" +
-                    $"CPU 1c+sql: {cpuTotal1c}{System.Environment.NewLine}" +
-                    $"RAM 1c+sql: {ramTotal1c}{System.Environment.NewLine}" +
-                    $"Disk: {systemdisk1c}Gb система + {basesdisk1c}Gb под базы.";
+                    resultBox.Text = $"Сажаем клиента на Терм и 1с+скуль.{System.Environment.NewLine}{System.Environment.NewLine}" +
+                        $"Term CPU: {cpuTotalTerm}{System.Environment.NewLine}" +
+                        $"Term RAM: {ramTotalTerm}{System.Environment.NewLine}" +
+                        $"Term Disk: {systemdiskTerm}Gb система.{System.Environment.NewLine}{System.Environment.NewLine}" +
+                        $"1c+sql CPU: {cpuTotal1c}{System.Environment.NewLine}" +
+                        $"1c+sql RAM: {ramTotal1c}{System.Environment.NewLine}" +
+                        $"1c+sql Disk: {systemdisk1c}Gb система + {basesdisk1c}Gb под базы.";
+                }
+                
             }
             //3-в-1, Web, ДО 80 юзеров И база ДО 20Гб включительно И суммарно баз ДО 20Гб включительно.
             else if (comboBox1.SelectedIndex == 1 && numericUsers.Value < 80 && numericBasesGB.Value < 25 && numericMaxBaseGB.Value < 25)
