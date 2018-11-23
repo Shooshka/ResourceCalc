@@ -67,7 +67,8 @@ namespace ResourceCalc
                         var systemdisk = 60 + numericUsers.Value;
                         var basesdisk = Convert.ToDouble(numericBasesGB.Value) * 1.5;
 
-                        resultBox.Text = $"ВНИМАНИЕ!{System.Environment.NewLine}Если клиент очень хочет с такой большой базой в файл, то сажаем клиента на простой терминальный сервер с файловыми базами." +
+                        resultBox.Text = $"ВНИМАНИЕ!{System.Environment.NewLine}Если клиент очень хочет с такой большой базой в файл," +
+                            $" то сажаем клиента на простой терминальный сервер с файловыми базами:" +
                         $"{System.Environment.NewLine}{System.Environment.NewLine}" +
                         $"CPU: 2{System.Environment.NewLine}" +
                         $"RAM: {2 + numericUsers.Value}{System.Environment.NewLine}" +
