@@ -73,28 +73,28 @@
             this.comboBox1.Location = new System.Drawing.Point(147, 87);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(120, 21);
-            this.comboBox1.TabIndex = 7;
+            this.comboBox1.TabIndex = 4;
             // 
             // numericMaxBaseGB
             // 
             this.numericMaxBaseGB.Location = new System.Drawing.Point(147, 61);
             this.numericMaxBaseGB.Name = "numericMaxBaseGB";
             this.numericMaxBaseGB.Size = new System.Drawing.Size(120, 20);
-            this.numericMaxBaseGB.TabIndex = 6;
+            this.numericMaxBaseGB.TabIndex = 3;
             // 
             // numericBasesGB
             // 
             this.numericBasesGB.Location = new System.Drawing.Point(147, 37);
             this.numericBasesGB.Name = "numericBasesGB";
             this.numericBasesGB.Size = new System.Drawing.Size(120, 20);
-            this.numericBasesGB.TabIndex = 5;
+            this.numericBasesGB.TabIndex = 2;
             // 
             // numericUsers
             // 
             this.numericUsers.Location = new System.Drawing.Point(147, 13);
             this.numericUsers.Name = "numericUsers";
             this.numericUsers.Size = new System.Drawing.Size(120, 20);
-            this.numericUsers.TabIndex = 4;
+            this.numericUsers.TabIndex = 1;
             // 
             // label4
             // 
@@ -102,7 +102,7 @@
             this.label4.Location = new System.Drawing.Point(6, 90);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(99, 13);
-            this.label4.TabIndex = 3;
+            this.label4.TabIndex = 4;
             this.label4.Text = "Тип подключения:";
             // 
             // label3
@@ -111,7 +111,7 @@
             this.label3.Location = new System.Drawing.Point(6, 63);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(139, 13);
-            this.label3.TabIndex = 2;
+            this.label3.TabIndex = 3;
             this.label3.Text = "Максимальная база в ГБ:";
             // 
             // label2
@@ -120,7 +120,7 @@
             this.label2.Location = new System.Drawing.Point(6, 39);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(95, 13);
-            this.label2.TabIndex = 1;
+            this.label2.TabIndex = 2;
             this.label2.Text = "Размер баз в ГБ:";
             // 
             // label1
@@ -129,7 +129,7 @@
             this.label1.Location = new System.Drawing.Point(6, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(124, 13);
-            this.label1.TabIndex = 0;
+            this.label1.TabIndex = 1;
             this.label1.Text = "Кол-во пользователей:";
             // 
             // groupBox2
@@ -156,7 +156,7 @@
             this.button1.Location = new System.Drawing.Point(12, 257);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
+            this.button1.TabIndex = 1;
             this.button1.Text = "Рассчитать";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
