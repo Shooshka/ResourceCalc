@@ -81,6 +81,7 @@
             this.numericMaxBaseGB.Name = "numericMaxBaseGB";
             this.numericMaxBaseGB.Size = new System.Drawing.Size(120, 20);
             this.numericMaxBaseGB.TabIndex = 3;
+            this.numericMaxBaseGB.Enter += new System.EventHandler(this.numericMaxBaseGB_Enter);
             // 
             // numericBasesGB
             // 
@@ -88,6 +89,7 @@
             this.numericBasesGB.Name = "numericBasesGB";
             this.numericBasesGB.Size = new System.Drawing.Size(120, 20);
             this.numericBasesGB.TabIndex = 2;
+            this.numericBasesGB.Enter += new System.EventHandler(this.numericBasesGB_Enter);
             // 
             // numericUsers
             // 
@@ -95,6 +97,7 @@
             this.numericUsers.Name = "numericUsers";
             this.numericUsers.Size = new System.Drawing.Size(120, 20);
             this.numericUsers.TabIndex = 1;
+            this.numericUsers.Enter += new System.EventHandler(this.numericUsers_Enter);
             // 
             // label4
             // 
