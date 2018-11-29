@@ -37,8 +37,8 @@ namespace ResourceCalc
             //Считаем RDP+Web
             if (comboBox1.SelectedIndex == 0)
             {
-                //Считаем юзеров от 1 до 5
-                if (numericUsers.Value > 0 && numericUsers.Value <= 5)
+                //Считаем юзеров от 1 до 7
+                if (numericUsers.Value > 0 && numericUsers.Value <= 7)
                 {
                     //Считаем макс.базу <= 4Gb, суммарно <= 40Gb
                     if (numericMaxBaseGB.Value <= 4 && numericBasesGB.Value <= 40)
@@ -108,8 +108,8 @@ namespace ResourceCalc
                         resultBox.Text = "Скорее всего автоматически такое посчитать не получится, обратитесь на vo за расчетом.";
                     }
                 }
-                //Считаем юзеров от 5 до 15
-                else if (numericUsers.Value > 5 && numericUsers.Value <= 15)
+                //Считаем юзеров от 7 до 15
+                else if (numericUsers.Value > 7 && numericUsers.Value <= 15)
                 {
                     //Считаем макс.базу <= 35Gb, суммарно <= 35Gb
                     if (numericMaxBaseGB.Value <= 35 && numericBasesGB.Value <= 35)
