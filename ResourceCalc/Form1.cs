@@ -197,7 +197,7 @@ namespace ResourceCalc
                 if (numericUsers.Value <= 80)
                 {
                     //Считаем макс.базу <= 20, суммарно <= 20
-                    if (numericBasesGB.Value < 20 && numericMaxBaseGB.Value < 20)
+                    if (numericBasesGB.Value <= 20 && numericMaxBaseGB.Value <= 20)
                     {
                         var cpu4users = 1;
                         var cpu4system = 1;
