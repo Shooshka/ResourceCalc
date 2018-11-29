@@ -23,10 +23,10 @@ namespace ResourceCalc
             numericUsers.Value = 1;
             numericUsers.Minimum = 1;
 
-            resultBox.Text = $"Калькулятор предназначен для расчета под клиента с параметрами:{System.Environment.NewLine}" +
-                $"Пользователи: 1-60(RDP+Web), 1-80(Web){System.Environment.NewLine}" +
-                $"Максимальный размер 1 базы: 40(RDP+Web), 20(Web){System.Environment.NewLine}" +
-                $"Максимальный суммарный размер баз: 40(RDP+Web), 20(Web){System.Environment.NewLine}" +
+            resultBox.Text = $"Калькулятор предназначен для расчета под клиента с параметрами:{Environment.NewLine}" +
+                $"Пользователи: 1-60(RDP+Web), 1-80(Web){Environment.NewLine}" +
+                $"Максимальный размер 1 базы: 40(RDP+Web), 20(Web){Environment.NewLine}" +
+                $"Максимальный суммарный размер баз: 40(RDP+Web), 20(Web){Environment.NewLine}" +
                 $"За всем остальным обращайтесь на vo.";
 
 
@@ -44,9 +44,9 @@ namespace ResourceCalc
                     if (numericMaxBaseGB.Value <= 4 && numericBasesGB.Value <= 40)
                     {
                         resultBox.Text = $"Сажаем клиента на простой терминальный сервер с файловыми базами." +
-                        $"{System.Environment.NewLine}{System.Environment.NewLine}" +
-                        $"CPU: 2{System.Environment.NewLine}" +
-                        $"RAM: {2 + numericUsers.Value}{System.Environment.NewLine}" +
+                        $"{Environment.NewLine}{Environment.NewLine}" +
+                        $"CPU: 2{Environment.NewLine}" +
+                        $"RAM: {2 + numericUsers.Value}{Environment.NewLine}" +
                         $"Disk: 50Gb система + {Convert.ToDouble(numericBasesGB.Value) * 1.5}Gb под базы.";
                     }
                     //Считаем макс.базу > 4Gb < 10, суммарно <= 40Gb
@@ -67,16 +67,16 @@ namespace ResourceCalc
                         var systemdisk = 60 + numericUsers.Value;
                         var basesdisk = Convert.ToDouble(numericBasesGB.Value) * 1.5;
 
-                        resultBox.Text = $"ВНИМАНИЕ!{System.Environment.NewLine}Если клиент очень хочет с такой большой базой в файл," +
+                        resultBox.Text = $"ВНИМАНИЕ!{Environment.NewLine}Если клиент очень хочет с такой большой базой в файл," +
                             $" то сажаем клиента на простой терминальный сервер с файловыми базами:" +
-                        $"{System.Environment.NewLine}{System.Environment.NewLine}" +
-                        $"CPU: 2{System.Environment.NewLine}" +
-                        $"RAM: {2 + numericUsers.Value}{System.Environment.NewLine}" +
+                        $"{Environment.NewLine}{Environment.NewLine}" +
+                        $"CPU: 2{Environment.NewLine}" +
+                        $"RAM: {2 + numericUsers.Value}{Environment.NewLine}" +
                         $"Disk: 50Gb система + {Convert.ToDouble(numericBasesGB.Value) * 1.5}Gb под базы." +
-                        $"{System.Environment.NewLine}{System.Environment.NewLine}" +
-                        $"Лучше предложить 3в1:{System.Environment.NewLine}{System.Environment.NewLine}" +
-                        $"CPU: {cpuTotal}{System.Environment.NewLine}" +
-                        $"RAM: {ramTotal}{System.Environment.NewLine}" +
+                        $"{Environment.NewLine}{Environment.NewLine}" +
+                        $"Лучше предложить 3в1:{Environment.NewLine}{Environment.NewLine}" +
+                        $"CPU: {cpuTotal}{Environment.NewLine}" +
+                        $"RAM: {ramTotal}{Environment.NewLine}" +
                         $"Disk: {systemdisk}Gb система + {basesdisk}Gb под базы.";
                     }
                     //Считаем макс.базу >10, суммарно <= 40Gb
@@ -97,9 +97,9 @@ namespace ResourceCalc
                         var systemdisk = 60 + numericUsers.Value;
                         var basesdisk = Convert.ToDouble(numericBasesGB.Value) * 1.5;
 
-                        resultBox.Text = $"Сажаем клиента на 3-в-1.{System.Environment.NewLine}{System.Environment.NewLine}" +
-                        $"CPU: {cpuTotal}{System.Environment.NewLine}" +
-                        $"RAM: {ramTotal}{System.Environment.NewLine}" +
+                        resultBox.Text = $"Сажаем клиента на 3-в-1.{Environment.NewLine}{Environment.NewLine}" +
+                        $"CPU: {cpuTotal}{Environment.NewLine}" +
+                        $"RAM: {ramTotal}{Environment.NewLine}" +
                         $"Disk: {systemdisk}Gb система + {basesdisk}Gb под базы.";
                     }
                     //Этого не должно быть, но вдруг магия.
@@ -129,9 +129,9 @@ namespace ResourceCalc
                         var systemdisk = 60 + numericUsers.Value;
                         var basesdisk = Convert.ToDouble(numericBasesGB.Value) * 1.5;
 
-                        resultBox.Text = $"Сажаем клиента на 3-в-1.{System.Environment.NewLine}{System.Environment.NewLine}" +
-                        $"CPU: {cpuTotal}{System.Environment.NewLine}" +
-                        $"RAM: {ramTotal}{System.Environment.NewLine}" +
+                        resultBox.Text = $"Сажаем клиента на 3-в-1.{Environment.NewLine}{Environment.NewLine}" +
+                        $"CPU: {cpuTotal}{Environment.NewLine}" +
+                        $"RAM: {ramTotal}{Environment.NewLine}" +
                         $"Disk: {systemdisk}Gb система + {basesdisk}Gb под базы.";
                     }
                     //Этого не должно быть, но вдруг магия.
@@ -169,12 +169,12 @@ namespace ResourceCalc
                         var systemdisk1c = 60;
                         var basesdisk1c = Convert.ToDouble(numericBasesGB.Value) * 1.5;
 
-                        resultBox.Text = $"Сажаем клиента на Терм и 1с+скуль.{System.Environment.NewLine}{System.Environment.NewLine}" +
-                            $"Term CPU: {cpuTotalTerm}{System.Environment.NewLine}" +
-                            $"Term RAM: {ramTotalTerm}{System.Environment.NewLine}" +
-                            $"Term Disk: {systemdiskTerm}Gb система.{System.Environment.NewLine}{System.Environment.NewLine}" +
-                            $"1c+sql CPU: {cpuTotal1c}{System.Environment.NewLine}" +
-                            $"1c+sql RAM: {ramTotal1c}{System.Environment.NewLine}" +
+                        resultBox.Text = $"Сажаем клиента на Терм и 1с+скуль.{Environment.NewLine}{Environment.NewLine}" +
+                            $"Term CPU: {cpuTotalTerm}{Environment.NewLine}" +
+                            $"Term RAM: {ramTotalTerm}{Environment.NewLine}" +
+                            $"Term Disk: {systemdiskTerm}Gb система.{Environment.NewLine}{Environment.NewLine}" +
+                            $"1c+sql CPU: {cpuTotal1c}{Environment.NewLine}" +
+                            $"1c+sql RAM: {ramTotal1c}{Environment.NewLine}" +
                             $"1c+sql Disk: {systemdisk1c}Gb система + {basesdisk1c}Gb под базы.";
                     }
                     //Этого не должно быть, но вдруг магия.
@@ -213,9 +213,9 @@ namespace ResourceCalc
                         var systemdisk = 60;
                         var basesdisk = Convert.ToDouble(numericBasesGB.Value) * 1.5;
 
-                        resultBox.Text = $"Сажаем клиента на 3-в-1.{System.Environment.NewLine}{System.Environment.NewLine}" +
-                            $"CPU: {cpuTotal}{System.Environment.NewLine}" +
-                            $"RAM: {ramTotal}{System.Environment.NewLine}" +
+                        resultBox.Text = $"Сажаем клиента на 3-в-1.{Environment.NewLine}{Environment.NewLine}" +
+                            $"CPU: {cpuTotal}{Environment.NewLine}" +
+                            $"RAM: {ramTotal}{Environment.NewLine}" +
                             $"Disk: {systemdisk}Gb система + {basesdisk}Gb под базы.";
                     }
                     //Этого не должно быть, но вдруг магия.
