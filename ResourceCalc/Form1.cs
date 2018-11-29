@@ -244,12 +244,12 @@ namespace ResourceCalc
 
         private void numericBasesGB_Enter(object sender, EventArgs e)
         {
-            numericBasesGB.Select(0, numericUsers.Text.Length);
+            numericBasesGB.Select(0, numericBasesGB.Text.Length);
         }
 
         private void numericMaxBaseGB_Enter(object sender, EventArgs e)
         {
-            numericMaxBaseGB.Select(0, numericUsers.Text.Length);
+            numericMaxBaseGB.Select(0, numericMaxBaseGB.Text.Length);
         }
     }
 }
