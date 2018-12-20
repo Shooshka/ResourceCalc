@@ -47,7 +47,7 @@ namespace ResourceCalc
                         $"{Environment.NewLine}{Environment.NewLine}" +
                         $"CPU: 2{Environment.NewLine}" +
                         $"RAM: {2 + numericUsers.Value}{Environment.NewLine}" +
-                        $"Disk: 50Gb система + {Convert.ToDouble(numericBasesGB.Value) * 1.5}Gb под базы.";
+                        $"Disk: 50Gb система + {Math.Ceiling(Convert.ToDouble(numericBasesGB.Value) * 1.5)}Gb под базы.";
                     }
                     //Считаем макс.базу > 4Gb < 10, суммарно <= 40Gb
                     else if (numericMaxBaseGB.Value > 4 && numericMaxBaseGB.Value <= 10 && numericBasesGB.Value <= 40)
@@ -65,14 +65,14 @@ namespace ResourceCalc
                         var ramTotal = ram4users + ram4system + ram41c + Convert.ToInt32(ram4sql);
 
                         var systemdisk = 60 + numericUsers.Value;
-                        var basesdisk = Convert.ToDouble(numericBasesGB.Value) * 1.5;
+                        var basesdisk = Math.Ceiling(Convert.ToDouble(numericBasesGB.Value) * 1.5);
 
                         resultBox.Text = $"ВНИМАНИЕ!{Environment.NewLine}Если клиент очень хочет с такой большой базой в файл," +
                             $" то сажаем клиента на простой терминальный сервер с файловыми базами:" +
                         $"{Environment.NewLine}{Environment.NewLine}" +
                         $"CPU: 2{Environment.NewLine}" +
                         $"RAM: {2 + numericUsers.Value}{Environment.NewLine}" +
-                        $"Disk: 50Gb система + {Convert.ToDouble(numericBasesGB.Value) * 1.5}Gb под базы." +
+                        $"Disk: 50Gb система + {Math.Ceiling(Convert.ToDouble(numericBasesGB.Value) * 1.5)}Gb под базы." +
                         $"{Environment.NewLine}{Environment.NewLine}" +
                         $"Лучше предложить 3в1:{Environment.NewLine}{Environment.NewLine}" +
                         $"CPU: {cpuTotal}{Environment.NewLine}" +
@@ -95,7 +95,7 @@ namespace ResourceCalc
                         var ramTotal = ram4users + ram4system + ram41c + Convert.ToInt32(ram4sql);
 
                         var systemdisk = 60 + numericUsers.Value;
-                        var basesdisk = Convert.ToDouble(numericBasesGB.Value) * 1.5;
+                        var basesdisk = Math.Ceiling(Convert.ToDouble(numericBasesGB.Value) * 1.5);
 
                         resultBox.Text = $"Сажаем клиента на 3-в-1.{Environment.NewLine}{Environment.NewLine}" +
                         $"CPU: {cpuTotal}{Environment.NewLine}" +
@@ -127,7 +127,7 @@ namespace ResourceCalc
                         var ramTotal = ram4users + ram4system + ram41c + Convert.ToInt32(ram4sql);
 
                         var systemdisk = 60 + numericUsers.Value;
-                        var basesdisk = Convert.ToDouble(numericBasesGB.Value) * 1.5;
+                        var basesdisk = Math.Ceiling(Convert.ToDouble(numericBasesGB.Value) * 1.5);
 
                         resultBox.Text = $"Сажаем клиента на 3-в-1.{Environment.NewLine}{Environment.NewLine}" +
                         $"CPU: {cpuTotal}{Environment.NewLine}" +
@@ -167,7 +167,7 @@ namespace ResourceCalc
                         var systemdiskTerm = 50 + numericUsers.Value;
 
                         var systemdisk1c = 60;
-                        var basesdisk1c = Convert.ToDouble(numericBasesGB.Value) * 1.5;
+                        var basesdisk1c = Math.Ceiling(Convert.ToDouble(numericBasesGB.Value) * 1.5);
 
                         resultBox.Text = $"Сажаем клиента на Терм и 1с+скуль.{Environment.NewLine}{Environment.NewLine}" +
                             $"Term CPU: {cpuTotalTerm}{Environment.NewLine}" +
@@ -211,7 +211,7 @@ namespace ResourceCalc
                         var ramTotal = ram4system + ram41c + Convert.ToInt32(ram4sql);
 
                         var systemdisk = 60;
-                        var basesdisk = Convert.ToDouble(numericBasesGB.Value) * 1.5;
+                        var basesdisk = Math.Ceiling(Convert.ToDouble(numericBasesGB.Value) * 1.5);
 
                         resultBox.Text = $"Сажаем клиента на 3-в-1.{Environment.NewLine}{Environment.NewLine}" +
                             $"CPU: {cpuTotal}{Environment.NewLine}" +
