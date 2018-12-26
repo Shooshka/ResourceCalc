@@ -65,7 +65,7 @@ namespace ResourceCalc
                         var ramTotal = ram4users + ram4system + ram41c + Convert.ToInt32(ram4sql);
 
                         var systemdisk = 60 + numericUsers.Value;
-                        var basesdisk = Math.Ceiling(Convert.ToDouble(numericBasesGB.Value) * 1.5);
+                        var basesdisk = Math.Ceiling(Convert.ToDouble(numericBasesGB.Value) * 2.1);
 
                         resultBox.Text = $"ВНИМАНИЕ!{Environment.NewLine}Если клиент очень хочет с такой большой базой в файл," +
                             $" то сажаем клиента на простой терминальный сервер с файловыми базами:" +
@@ -95,7 +95,7 @@ namespace ResourceCalc
                         var ramTotal = ram4users + ram4system + ram41c + Convert.ToInt32(ram4sql);
 
                         var systemdisk = 60 + numericUsers.Value;
-                        var basesdisk = Math.Ceiling(Convert.ToDouble(numericBasesGB.Value) * 1.5);
+                        var basesdisk = Math.Ceiling(Convert.ToDouble(numericBasesGB.Value) * 2.1);
 
                         resultBox.Text = $"Сажаем клиента на 3-в-1.{Environment.NewLine}{Environment.NewLine}" +
                         $"CPU: {cpuTotal}{Environment.NewLine}" +
@@ -127,7 +127,7 @@ namespace ResourceCalc
                         var ramTotal = ram4users + ram4system + ram41c + Convert.ToInt32(ram4sql);
 
                         var systemdisk = 60 + numericUsers.Value;
-                        var basesdisk = Math.Ceiling(Convert.ToDouble(numericBasesGB.Value) * 1.5);
+                        var basesdisk = Math.Ceiling(Convert.ToDouble(numericBasesGB.Value) * 2.1);
 
                         resultBox.Text = $"Сажаем клиента на 3-в-1.{Environment.NewLine}{Environment.NewLine}" +
                         $"CPU: {cpuTotal}{Environment.NewLine}" +
@@ -167,7 +167,7 @@ namespace ResourceCalc
                         var systemdiskTerm = 50 + numericUsers.Value;
 
                         var systemdisk1c = 60;
-                        var basesdisk1c = Math.Ceiling(Convert.ToDouble(numericBasesGB.Value) * 1.5);
+                        var basesdisk1c = Math.Ceiling(Convert.ToDouble(numericBasesGB.Value) * 2.1);
 
                         resultBox.Text = $"Сажаем клиента на Терм и 1с+скуль.{Environment.NewLine}{Environment.NewLine}" +
                             $"Term CPU: {cpuTotalTerm}{Environment.NewLine}" +
@@ -211,7 +211,7 @@ namespace ResourceCalc
                         var ramTotal = ram4system + ram41c + Convert.ToInt32(ram4sql);
 
                         var systemdisk = 60;
-                        var basesdisk = Math.Ceiling(Convert.ToDouble(numericBasesGB.Value) * 1.5);
+                        var basesdisk = Math.Ceiling(Convert.ToDouble(numericBasesGB.Value) * 2.1);
 
                         resultBox.Text = $"Сажаем клиента на 3-в-1.{Environment.NewLine}{Environment.NewLine}" +
                             $"CPU: {cpuTotal}{Environment.NewLine}" +
