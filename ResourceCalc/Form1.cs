@@ -43,26 +43,29 @@ namespace ResourceCalc
                     //Считаем макс.базу <= 4Gb, суммарно <= 40Gb
                     if (numericMaxBaseGB.Value <= 4 && numericBasesGB.Value <= 40)
                     {
+                        var ram = 2 + ((Convert.ToInt32(numericUsers.Value) % 2 == 0) ? Convert.ToInt32(numericUsers.Value) : (Convert.ToInt32(numericUsers.Value) + 1));
                         resultBox.Text = $"Сажаем клиента на простой терминальный сервер с файловыми базами." +
                         $"{Environment.NewLine}{Environment.NewLine}" +
                         $"CPU: 2{Environment.NewLine}" +
-                        $"RAM: {2 + numericUsers.Value}{Environment.NewLine}" +
+                        $"RAM: {ram}{Environment.NewLine}" +
                         $"Disk: 50Gb система + {Math.Ceiling(Convert.ToDouble(numericBasesGB.Value) * 1.5)}Gb под базы.";
                     }
                     //Считаем макс.базу > 4Gb < 10, суммарно <= 40Gb
                     else if (numericMaxBaseGB.Value > 4 && numericMaxBaseGB.Value <= 10 && numericBasesGB.Value <= 40)
                     {
+                        var ram4file = 2 + ((Convert.ToInt32(numericUsers.Value) % 2 == 0) ? Convert.ToInt32(numericUsers.Value) : (Convert.ToInt32(numericUsers.Value) + 1));
+
                         var cpu4users = (Convert.ToInt32(numericUsers.Value) % 7 == 0) ? Convert.ToInt32(numericUsers.Value) / 7 : (Convert.ToInt32(numericUsers.Value) / 7) + 1;
                         var cpu4system = 1;
                         var cpu41c = 1;
                         var cpu4sql = 1 + cpu41c;
-                        var cpuTotal = cpu4users + cpu41c + cpu4sql + cpu4system;
+                        var cpuTotal = (cpu4users + cpu41c + cpu4sql + cpu4system) % 2 == 0 ? (cpu4users + cpu41c + cpu4sql + cpu4system) : (cpu4users + cpu41c + cpu4sql + cpu4system) + 1;
 
                         var ram4users = (Convert.ToInt32(numericUsers.Value) % 2 == 0) ? Convert.ToInt32(numericUsers.Value) / 2 : (Convert.ToInt32(numericUsers.Value) / 2) + 1;
                         var ram4system = 2;
                         var ram41c = 4;
                         var ram4sql = Convert.ToInt32(numericBasesGB.Value) / 2;
-                        var ramTotal = ram4users + ram4system + ram41c + Convert.ToInt32(ram4sql);
+                        var ramTotal = (ram4users + ram4system + ram41c + Convert.ToInt32(ram4sql)) % 2 == 0 ? (ram4users + ram4system + ram41c + Convert.ToInt32(ram4sql)) : (ram4users + ram4system + ram41c + Convert.ToInt32(ram4sql)) + 1;
 
                         var systemdisk = 60 + numericUsers.Value;
                         var basesdisk = Math.Ceiling(Convert.ToDouble(numericBasesGB.Value) * 2.1);
@@ -71,7 +74,7 @@ namespace ResourceCalc
                             $" то сажаем клиента на простой терминальный сервер с файловыми базами:" +
                         $"{Environment.NewLine}{Environment.NewLine}" +
                         $"CPU: 2{Environment.NewLine}" +
-                        $"RAM: {2 + numericUsers.Value}{Environment.NewLine}" +
+                        $"RAM: {ram4file}{Environment.NewLine}" +
                         $"Disk: 50Gb система + {Math.Ceiling(Convert.ToDouble(numericBasesGB.Value) * 1.5)}Gb под базы." +
                         $"{Environment.NewLine}{Environment.NewLine}" +
                         $"Лучше предложить 3в1:{Environment.NewLine}{Environment.NewLine}" +
@@ -86,13 +89,13 @@ namespace ResourceCalc
                         var cpu4system = 1;
                         var cpu41c = 1;
                         var cpu4sql = 1 + cpu41c;
-                        var cpuTotal = cpu4users + cpu41c + cpu4sql + cpu4system;
+                        var cpuTotal = (cpu4users + cpu41c + cpu4sql + cpu4system) % 2 == 0 ? (cpu4users + cpu41c + cpu4sql + cpu4system) : (cpu4users + cpu41c + cpu4sql + cpu4system) + 1;
 
                         var ram4users = (Convert.ToInt32(numericUsers.Value) % 2 == 0) ? Convert.ToInt32(numericUsers.Value) / 2 : (Convert.ToInt32(numericUsers.Value) / 2) + 1;
                         var ram4system = 2;
                         var ram41c = 4;
                         var ram4sql = Convert.ToInt32(numericBasesGB.Value) / 2;
-                        var ramTotal = ram4users + ram4system + ram41c + Convert.ToInt32(ram4sql);
+                        var ramTotal = (ram4users + ram4system + ram41c + Convert.ToInt32(ram4sql)) % 2 == 0 ? (ram4users + ram4system + ram41c + Convert.ToInt32(ram4sql)) : (ram4users + ram4system + ram41c + Convert.ToInt32(ram4sql)) + 1;
 
                         var systemdisk = 60 + numericUsers.Value;
                         var basesdisk = Math.Ceiling(Convert.ToDouble(numericBasesGB.Value) * 2.1);
@@ -118,13 +121,13 @@ namespace ResourceCalc
                         var cpu4system = 1;
                         var cpu41c = 1;
                         var cpu4sql = 1 + cpu41c;
-                        var cpuTotal = cpu4users + cpu41c + cpu4sql + cpu4system;
+                        var cpuTotal = (cpu4users + cpu41c + cpu4sql + cpu4system) % 2 == 0 ? (cpu4users + cpu41c + cpu4sql + cpu4system) : (cpu4users + cpu41c + cpu4sql + cpu4system) + 1;
 
                         var ram4users = (Convert.ToInt32(numericUsers.Value) % 2 == 0) ? Convert.ToInt32(numericUsers.Value) / 2 : (Convert.ToInt32(numericUsers.Value) / 2) + 1;
                         var ram4system = 2;
                         var ram41c = 4;
                         var ram4sql = Convert.ToInt32(numericBasesGB.Value) / 2;
-                        var ramTotal = ram4users + ram4system + ram41c + Convert.ToInt32(ram4sql);
+                        var ramTotal = (ram4users + ram4system + ram41c + Convert.ToInt32(ram4sql)) % 2 == 0 ? (ram4users + ram4system + ram41c + Convert.ToInt32(ram4sql)) : (ram4users + ram4system + ram41c + Convert.ToInt32(ram4sql)) + 1;
 
                         var systemdisk = 60 + numericUsers.Value;
                         var basesdisk = Math.Ceiling(Convert.ToDouble(numericBasesGB.Value) * 2.1);
@@ -152,8 +155,8 @@ namespace ResourceCalc
                         var cpu41c = (Convert.ToInt32(numericUsers.Value) % 20 == 0) ? Convert.ToInt32(numericUsers.Value) / 20 : (Convert.ToInt32(numericUsers.Value) / 20) + 1;
                         var cpu4sql = 1 + cpu41c;
 
-                        var cpuTotalTerm = cpu4users + cpu4system;
-                        var cpuTotal1c = cpu4system + cpu41c + cpu4sql;
+                        var cpuTotalTerm = (cpu4users + cpu4system) % 2 == 0 ? (cpu4users + cpu4system) : (cpu4users + cpu4system) + 1;
+                        var cpuTotal1c = (cpu4system + cpu41c + cpu4sql) % 2 == 0 ? (cpu4system + cpu41c + cpu4sql) : (cpu4system + cpu41c + cpu4sql) + 1;
 
                         var ram4users = (Convert.ToInt32(numericUsers.Value) % 2 == 0) ? Convert.ToInt32(numericUsers.Value) / 2 : (Convert.ToInt32(numericUsers.Value) / 2) + 1;
                         var ram4system = 2;
@@ -161,8 +164,8 @@ namespace ResourceCalc
                         var ram41c = cpu41c * 4;
                         var ram4sql = Convert.ToInt32(numericBasesGB.Value) / 2;
 
-                        var ramTotalTerm = ram4users + ram4system;
-                        var ramTotal1c = ram4system + ram41c + Convert.ToInt32(ram4sql);
+                        var ramTotalTerm = (ram4users + ram4system) % 2 == 0 ? (ram4users + ram4system) : (ram4users + ram4system) + 1;
+                        var ramTotal1c = (ram4system + ram41c + Convert.ToInt32(ram4sql)) % 2 == 0 ? (ram4system + ram41c + Convert.ToInt32(ram4sql)) : (ram4system + ram41c + Convert.ToInt32(ram4sql)) + 1;
 
                         var systemdiskTerm = 50 + numericUsers.Value;
 
@@ -203,12 +206,12 @@ namespace ResourceCalc
                         var cpu4system = 1;
                         var cpu41c = (Convert.ToInt32(numericUsers.Value) % 20 == 0) ? Convert.ToInt32(numericUsers.Value) / 20 : (Convert.ToInt32(numericUsers.Value) / 20) + 1;
                         var cpu4sql = 1 + cpu41c;
-                        var cpuTotal = cpu4users + cpu41c + cpu4sql + cpu4system;
+                        var cpuTotal = (cpu4users + cpu41c + cpu4sql + cpu4system) % 2 == 0 ? (cpu4users + cpu41c + cpu4sql + cpu4system) : (cpu4users + cpu41c + cpu4sql + cpu4system) + 1;
 
                         var ram4system = 2;
                         var ram41c = cpu41c * 4;
                         var ram4sql = Convert.ToInt32(numericBasesGB.Value) / 2;
-                        var ramTotal = ram4system + ram41c + Convert.ToInt32(ram4sql);
+                        var ramTotal = (ram4system + ram41c + Convert.ToInt32(ram4sql)) % 2 == 0 ? ram4system + ram41c + Convert.ToInt32(ram4sql) : ram4system + ram41c + Convert.ToInt32(ram4sql) + 1;
 
                         var systemdisk = 60;
                         var basesdisk = Math.Ceiling(Convert.ToDouble(numericBasesGB.Value) * 2.1);
